@@ -1,0 +1,1714 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #fff0f6 0%,
+            #fce3ee 35%,
+            #f8d3e2 70%,
+            #efc0d5 100%
+        );
+
+    color: #713f57;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =====================================================
+   LOCK SCREEN
+===================================================== */
+
+.screen {
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px;
+}
+
+.lock-screen {
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255,255,255,.8),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(255,200,220,.6),
+            transparent 35%
+        );
+}
+
+.lock-card {
+    width: min(460px, 94vw);
+
+    padding: 45px 35px;
+
+    text-align: center;
+
+    border-radius: 28px;
+
+    background:
+        rgba(255,255,255,.78);
+
+    backdrop-filter:
+        blur(20px);
+
+    box-shadow:
+        0 30px 80px rgba(120,60,90,.2);
+
+    animation:
+        cardFloat 4s ease-in-out infinite;
+}
+
+.lock-icon {
+    font-size: 70px;
+
+    margin-bottom: 15px;
+
+    animation:
+        lockBounce 2s ease-in-out infinite;
+}
+
+.lock-card h1 {
+    font-size: 36px;
+
+    margin-bottom: 10px;
+
+    color: #9a456b;
+}
+
+.lock-card p {
+    font-size: 15px;
+}
+
+.lock-card .small {
+    margin-top: 8px;
+
+    color: #a66a83;
+}
+
+.password-box {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+.password-box input {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 14px 16px;
+
+    border:
+        2px solid #efc1d4;
+
+    border-radius: 14px;
+
+    outline: none;
+
+    background: white;
+
+    color: #713f57;
+}
+
+.password-box input:focus {
+    border-color: #d47c9f;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(212,124,159,.12);
+}
+
+.password-box button {
+    border: none;
+
+    padding: 14px 18px;
+
+    border-radius: 14px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d878a0,
+            #b95780
+        );
+
+    box-shadow:
+        0 8px 20px
+        rgba(185,87,128,.25);
+
+    transition:
+        .2s ease;
+}
+
+.password-box button:hover {
+    transform:
+        translateY(-2px);
+}
+
+.error-message {
+    min-height: 24px;
+
+    margin-top: 12px;
+
+    color: #c14e72;
+
+    font-size: 13px;
+}
+
+.hint {
+    margin-top: 20px;
+
+    font-size: 13px;
+
+    color: #a16b80;
+}
+
+
+/* =====================================================
+   TRANSITION
+===================================================== */
+
+.transition-screen {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle,
+            #fff1f7,
+            #f3c6da
+        );
+}
+
+.transition-content {
+    text-align: center;
+
+    animation:
+        transitionFloat
+        2s ease-in-out infinite;
+}
+
+.transition-lock {
+    font-size: 80px;
+}
+
+.transition-hearts {
+    margin: 15px 0;
+
+    font-size: 25px;
+
+    animation:
+        heartsPulse
+        1.4s ease-in-out infinite;
+}
+
+.transition-content h2 {
+    font-size: 25px;
+
+    color: #914c6a;
+}
+
+
+/* =====================================================
+   MAIN SCREEN
+===================================================== */
+
+#birthdayScreen {
+    position: relative;
+
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff4f8,
+            #fbdce9,
+            #f8d2e2
+        );
+}
+
+.birthday-container {
+    position: relative;
+
+    z-index: 10;
+
+    width: min(1100px, 94vw);
+
+    min-height: 100vh;
+
+    margin: auto;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+.experience-phase {
+    width: 100%;
+
+    text-align: center;
+
+    padding: 70px 0;
+
+    animation:
+        phaseIn
+        .9s ease;
+}
+
+
+/* =====================================================
+   BIRTHDAY
+===================================================== */
+
+.top-message {
+    font-size: 15px;
+
+    color: #9b5d77;
+
+    margin-bottom: 15px;
+}
+
+.birthday-title {
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size:
+        clamp(50px, 8vw, 88px);
+
+    line-height: 1.05;
+
+    color: #9a456b;
+
+    text-shadow:
+        0 5px 20px
+        rgba(154,69,107,.12);
+}
+
+.birthday-title span {
+    display: inline-block;
+}
+
+.subtitle {
+    margin-top: 12px;
+
+    font-size: 17px;
+
+    color: #a66a83;
+}
+
+
+/* =====================================================
+   CAKE
+===================================================== */
+
+.cake-area {
+    position: relative;
+
+    width: 250px;
+
+    margin: 35px auto 25px;
+}
+
+.cake {
+    position: relative;
+
+    z-index: 2;
+
+    font-size: 120px;
+
+    animation:
+        cakeFloat
+        3s ease-in-out infinite;
+}
+
+.cake-glow {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 180px;
+    height: 100px;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,174,210,.4);
+
+    filter:
+        blur(30px);
+
+    animation:
+        glowPulse
+        2s ease-in-out infinite;
+}
+
+.cake-text {
+    position: relative;
+
+    margin-top: -10px;
+
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size: 24px;
+
+    color: #a34d71;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.main-button,
+.music-button,
+.celebrate-button {
+    border: none;
+
+    border-radius: 18px;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.main-button {
+    padding: 15px 27px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d77c9f,
+            #b6537d
+        );
+
+    box-shadow:
+        0 12px 30px
+        rgba(181,82,125,.25);
+}
+
+.main-button:hover {
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 18px 35px
+        rgba(181,82,125,.35);
+}
+
+.continue-button {
+    display: block;
+
+    margin: 15px auto 0;
+}
+
+.music-button {
+    padding: 12px 20px;
+
+    color: #8e4867;
+
+    background:
+        rgba(255,255,255,.8);
+
+    border:
+        1px solid #efc2d5;
+
+    box-shadow:
+        0 8px 20px
+        rgba(120,70,90,.12);
+}
+
+.celebrate-button {
+    padding: 18px 35px;
+
+    margin-top: 25px;
+
+    font-size: 18px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e586ab,
+            #bb557f
+        );
+
+    box-shadow:
+        0 15px 35px
+        rgba(185,85,127,.3);
+
+    animation:
+        celebrateButtonPulse
+        2s ease-in-out infinite;
+}
+
+
+/* =====================================================
+   LETTER / ENVELOPE
+===================================================== */
+
+.section-label {
+    margin-bottom: 25px;
+
+    font-size: 17px;
+
+    color: #98506e;
+}
+
+
+/*
+   ENVELOPE
+*/
+
+.envelope {
+    position: relative;
+
+    width: min(650px, 94vw);
+
+    height: 430px;
+
+    margin:
+        0 auto 40px;
+
+    overflow: visible;
+
+    perspective: 1200px;
+
+    transform-style: preserve-3d;
+}
+
+
+/*
+   BACK
+*/
+
+.envelope-back {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            145deg,
+            #eeb3c8,
+            #d989a7
+        );
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 25px 50px
+        rgba(110,45,70,.2);
+}
+
+
+/* =====================================================
+   LETTER
+===================================================== */
+
+.letter {
+    position: absolute;
+
+    width: 92%;
+    height: 92%;
+
+    left: 4%;
+    top: 4%;
+
+    z-index: 5;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fffdf8,
+            #fff8f3
+        );
+
+    border-radius: 7px;
+
+    padding: 25px;
+
+    /*
+       CLOSED POSITION:
+       completely inside / below envelope.
+    */
+
+    transform:
+        translateY(105px)
+        scale(.88);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    box-shadow:
+        0 15px 40px
+        rgba(100,50,65,.18);
+
+    overflow: hidden;
+
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    transition:
+        transform 1.7s
+        cubic-bezier(.16,1,.3,1),
+
+        opacity .8s ease;
+}
+
+
+/*
+   LETTER RISES AFTER FLAP OPENS
+*/
+
+.envelope.letter-rising .letter {
+    z-index: 25;
+
+    transform:
+        translateY(-70px)
+        scale(1);
+
+    opacity: 1;
+
+    pointer-events: auto;
+}
+
+
+/* =====================================================
+   LETTER CONTENT
+===================================================== */
+
+.letter-content {
+    width: 100%;
+    height: 100%;
+
+    overflow-y: auto;
+
+    padding:
+        5px 12px 20px;
+
+    text-align: left;
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        #e4a3bb
+        transparent;
+}
+
+.letter-content::-webkit-scrollbar {
+    width: 5px;
+}
+
+.letter-content::-webkit-scrollbar-thumb {
+    background:
+        #e4a3bb;
+
+    border-radius: 10px;
+}
+
+.letter-content h2 {
+    margin-bottom: 20px;
+
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size: 28px;
+
+    color: #9b4e70;
+
+    text-align: center;
+}
+
+.typing-paragraph {
+    margin-bottom: 16px;
+
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size: 23px;
+
+    line-height: 1.5;
+
+    color: #75465a;
+}
+
+.signature {
+    margin-top: 20px;
+
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size: 27px;
+
+    color: #9a456b;
+
+    text-align: right;
+}
+
+.typing-cursor {
+    display: inline-block;
+
+    width: 2px;
+
+    height: 1em;
+
+    margin-left: 2px;
+
+    vertical-align: middle;
+
+    background:
+        #9a456b;
+
+    animation:
+        cursorBlink
+        .7s steps(1) infinite;
+}
+
+
+/* =====================================================
+   ENVELOPE FRONT
+===================================================== */
+
+.envelope-front {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 15;
+
+    background:
+        linear-gradient(
+            145deg,
+            #df91ad,
+            #c97195
+        );
+
+    clip-path:
+        polygon(
+            0 100%,
+            50% 45%,
+            100% 100%
+        );
+
+    border-radius:
+        0 0 8px 8px;
+
+    transition:
+        opacity .7s ease .7s;
+}
+
+.envelope.flap-open .envelope-front {
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   ENVELOPE FLAP
+===================================================== */
+
+.envelope-flap {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 62%;
+
+    z-index: 30;
+
+    background:
+        linear-gradient(
+            145deg,
+            #edacc3,
+            #d47f9e
+        );
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 100%
+        );
+
+    transform-origin:
+        top center;
+
+    transform:
+        rotateX(0deg);
+
+    transition:
+        transform 1.25s
+        cubic-bezier(.2,.8,.2,1);
+
+    backface-visibility:
+        hidden;
+
+    will-change:
+        transform;
+}
+
+
+/*
+   ACTUAL FLAP OPENING
+*/
+
+.envelope.flap-open .envelope-flap {
+    transform:
+        rotateX(180deg);
+}
+
+
+/* =====================================================
+   CELEBRATE
+===================================================== */
+
+.celebrate-heart {
+    font-size: 100px;
+
+    animation:
+        bigHeartPulse
+        1.5s ease-in-out infinite;
+}
+
+#celebratePhase h2 {
+    margin-top: 10px;
+
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size: 48px;
+
+    color: #98476b;
+}
+
+#celebratePhase p {
+    margin-top: 10px;
+
+    color: #9e607a;
+}
+
+
+/* =====================================================
+   GALLERY
+===================================================== */
+
+#galleryPhase {
+    position: relative;
+}
+
+#galleryPhase h2 {
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size: 52px;
+
+    color: #98476b;
+}
+
+.gallery-subtitle {
+    margin-top: 5px;
+
+    color: #a2637d;
+}
+
+.hologram-gallery {
+    position: relative;
+
+    width: min(900px, 94vw);
+
+    height: 560px;
+
+    margin: 20px auto 0;
+
+    perspective: 1200px;
+}
+
+
+/* =====================================================
+   RINGS
+===================================================== */
+
+.hologram-ring {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    border:
+        1px solid
+        rgba(207,117,159,.25);
+
+    border-radius: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        rotateX(65deg);
+
+    pointer-events: none;
+}
+
+.ring-one {
+    width: 300px;
+    height: 180px;
+}
+
+.ring-two {
+    width: 470px;
+    height: 280px;
+}
+
+.ring-three {
+    width: 650px;
+    height: 390px;
+}
+
+
+/* =====================================================
+   CENTER
+===================================================== */
+
+.hologram-core {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.9),
+            rgba(255,205,225,.3)
+        );
+
+    color: #c76790;
+
+    font-size: 25px;
+
+    box-shadow:
+        0 0 45px
+        rgba(215,120,160,.35);
+
+    z-index: 2;
+}
+
+
+/* =====================================================
+   ORBIT
+===================================================== */
+
+.hologram-orbit {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 0;
+    height: 0;
+
+    transform-style:
+        preserve-3d;
+}
+
+.orbit-photo {
+    position: absolute;
+
+    width: 116px;
+    height: 146px;
+
+    left: -58px;
+    top: -73px;
+
+    object-fit: cover;
+
+    border-radius: 14px;
+
+    border:
+        3px solid
+        rgba(255,255,255,.85);
+
+    box-shadow:
+        0 15px 35px
+        rgba(110,50,80,.25);
+
+    will-change:
+        transform,
+        opacity;
+
+    backface-visibility:
+        hidden;
+}
+
+
+/* =====================================================
+   INCOMING MEMORY
+===================================================== */
+
+.incoming-memory {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 0;
+    height: 0;
+
+    z-index: 50;
+
+    pointer-events: none;
+}
+
+.incoming-photo {
+    position: absolute;
+
+    left: -90px;
+    top: -115px;
+
+    width: 180px;
+    height: 230px;
+
+    opacity: 0;
+}
+
+.incoming-photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 18px;
+
+    border:
+        4px solid white;
+
+    box-shadow:
+        0 25px 70px
+        rgba(100,40,70,.3);
+}
+
+.incoming-word {
+    position: absolute;
+
+    left: 50%;
+    top: 125px;
+
+    transform:
+        translateX(-50%)
+        scale(.8);
+
+    white-space: nowrap;
+
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size: 32px;
+
+    color: #a04e72;
+
+    opacity: 0;
+
+    transition:
+        opacity .5s ease,
+        transform .5s ease;
+}
+
+
+/* =====================================================
+   FLOATING WORDS
+===================================================== */
+
+.floating-word {
+    position: absolute;
+
+    z-index: 5;
+
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size: 24px;
+
+    color: #a25777;
+
+    pointer-events: none;
+
+    animation:
+        floatingWord
+        4s ease-in-out infinite;
+}
+
+.word-one {
+    left: 8%;
+    top: 24%;
+}
+
+.word-two {
+    right: 7%;
+    top: 28%;
+
+    animation-delay: 1s;
+}
+
+.word-three {
+    left: 12%;
+    bottom: 20%;
+
+    animation-delay: 2s;
+}
+
+.word-four {
+    right: 10%;
+    bottom: 18%;
+
+    animation-delay: 3s;
+}
+
+.gallery-ending {
+    margin-top: -5px;
+
+    color: #9d6078;
+}
+
+
+/* =====================================================
+   ENDING
+===================================================== */
+
+.big-heart {
+    font-size: 120px;
+
+    animation:
+        endingHeart
+        2s ease-in-out infinite;
+}
+
+#endingPhase h2 {
+    margin-top: 20px;
+
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size:
+        clamp(42px, 7vw, 65px);
+
+    color: #98476b;
+}
+
+#endingPhase p {
+    margin-top: 12px;
+
+    color: #986078;
+}
+
+.final-love {
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size: 27px;
+
+    color: #9c4c70 !important;
+}
+
+
+/* =====================================================
+   BACKGROUND EFFECTS
+===================================================== */
+
+#stars,
+#particles,
+#hearts {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+
+    width: 3px;
+    height: 3px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    opacity: .7;
+
+    animation:
+        starTwinkle
+        2s ease-in-out infinite;
+}
+
+.particle {
+    position: absolute;
+
+    font-size: 15px;
+
+    opacity: .35;
+
+    animation:
+        particleFloat
+        7s linear infinite;
+}
+
+.heart-particle {
+    position: absolute;
+
+    font-size: 20px;
+
+    opacity: .35;
+
+    animation:
+        heartFloat
+        7s linear infinite;
+}
+
+
+/* =====================================================
+   FLOWER CELEBRATION
+===================================================== */
+
+.celebration-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 99999;
+
+    overflow: hidden;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,245,250,.98),
+            rgba(235,175,202,.98)
+        );
+
+    opacity: 1;
+
+    transition:
+        opacity .7s ease;
+}
+
+.celebration-overlay.fade-out {
+    opacity: 0;
+}
+
+.celebration-message {
+    position: relative;
+
+    z-index: 5;
+
+    text-align: center;
+
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size:
+        clamp(48px, 9vw, 90px);
+
+    color: #9d456c;
+
+    animation:
+        celebrationMessage
+        .9s ease;
+}
+
+.celebration-flower {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    font-size: 30px;
+
+    transform:
+        translate(-50%, -50%);
+
+    animation:
+        flowerBurst
+        3.2s
+        cubic-bezier(.18,.8,.25,1)
+        forwards;
+
+    animation-delay:
+        var(--delay);
+
+    opacity: 0;
+}
+
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+@keyframes cardFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes lockBounce {
+
+    0%, 100% {
+        transform:
+            translateY(0)
+            rotate(0);
+    }
+
+    50% {
+        transform:
+            translateY(-8px)
+            rotate(-3deg);
+    }
+}
+
+@keyframes transitionFloat {
+
+    0%, 100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-12px);
+    }
+}
+
+@keyframes heartsPulse {
+
+    0%, 100% {
+        transform:
+            scale(1);
+    }
+
+    50% {
+        transform:
+            scale(1.12);
+    }
+}
+
+@keyframes phaseIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+@keyframes cakeFloat {
+
+    0%, 100% {
+        transform:
+            translateY(0)
+            rotate(-1deg);
+    }
+
+    50% {
+        transform:
+            translateY(-10px)
+            rotate(1deg);
+    }
+}
+
+@keyframes glowPulse {
+
+    0%, 100% {
+        opacity: .5;
+
+        transform:
+            translate(-50%, -50%)
+            scale(.9);
+    }
+
+    50% {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.15);
+    }
+}
+
+@keyframes cursorBlink {
+
+    0%, 49% {
+        opacity: 1;
+    }
+
+    50%, 100% {
+        opacity: 0;
+    }
+}
+
+@keyframes bigHeartPulse {
+
+    0%, 100% {
+        transform:
+            scale(1);
+    }
+
+    50% {
+        transform:
+            scale(1.12);
+    }
+}
+
+@keyframes celebrateButtonPulse {
+
+    0%, 100% {
+        transform:
+            scale(1);
+    }
+
+    50% {
+        transform:
+            scale(1.05);
+    }
+}
+
+@keyframes floatingWord {
+
+    0%, 100% {
+        transform:
+            translateY(0);
+
+        opacity: .75;
+    }
+
+    50% {
+        transform:
+            translateY(-10px);
+
+        opacity: 1;
+    }
+}
+
+@keyframes endingHeart {
+
+    0%, 100% {
+        transform:
+            scale(1);
+    }
+
+    50% {
+        transform:
+            scale(1.15);
+    }
+}
+
+@keyframes starTwinkle {
+
+    0%, 100% {
+        opacity: .2;
+    }
+
+    50% {
+        opacity: .9;
+    }
+}
+
+@keyframes particleFloat {
+
+    from {
+        transform:
+            translateY(110vh)
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            translateY(-20vh)
+            rotate(360deg);
+    }
+}
+
+@keyframes heartFloat {
+
+    from {
+        transform:
+            translateY(110vh)
+            scale(.8);
+    }
+
+    to {
+        transform:
+            translateY(-20vh)
+            scale(1.2);
+    }
+}
+
+@keyframes flowerBurst {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            translate(0, 0)
+            rotate(0deg)
+            scale(.2);
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            translate(
+                var(--x),
+                var(--y)
+            )
+            rotate(
+                var(--rotation)
+            )
+            scale(1.1);
+    }
+}
+
+@keyframes celebrationMessage {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(.6);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .lock-card {
+        padding:
+            35px 22px;
+    }
+
+    .lock-card h1 {
+        font-size: 30px;
+    }
+
+    .password-box {
+        flex-direction: column;
+    }
+
+    .password-box button {
+        width: 100%;
+    }
+
+    .birthday-title {
+        font-size: 53px;
+    }
+
+    .cake {
+        font-size: 95px;
+    }
+
+    .envelope {
+        width: 94vw;
+
+        height: 340px;
+    }
+
+    .letter {
+        padding: 18px;
+    }
+
+    .letter-content h2 {
+        font-size: 24px;
+    }
+
+    .typing-paragraph {
+        font-size: 19px;
+
+        line-height: 1.45;
+    }
+
+    .signature {
+        font-size: 24px;
+    }
+
+    #celebratePhase h2 {
+        font-size: 38px;
+    }
+
+    #galleryPhase h2 {
+        font-size: 42px;
+    }
+
+    .hologram-gallery {
+        height: 470px;
+    }
+
+    .ring-one {
+        width: 240px;
+        height: 150px;
+    }
+
+    .ring-two {
+        width: 360px;
+        height: 220px;
+    }
+
+    .ring-three {
+        width: 500px;
+        height: 310px;
+    }
+
+    .orbit-photo {
+        width: 95px;
+        height: 120px;
+
+        left: -47.5px;
+        top: -60px;
+    }
+
+    .floating-word {
+        font-size: 19px;
+    }
+
+    .word-one {
+        left: 2%;
+    }
+
+    .word-two {
+        right: 2%;
+    }
+
+    .word-three {
+        left: 4%;
+    }
+
+    .word-four {
+        right: 4%;
+    }
+}

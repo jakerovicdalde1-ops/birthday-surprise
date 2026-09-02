@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Little Surprise For You ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     LOCK SCREEN
+===================================================== -->
+
+<section id="lockScreen" class="screen lock-screen">
+
+    <div class="lock-card">
+
+        <div class="lock-icon">
+            🔐
+        </div>
+
+        <h1>
+            A Little Surprise
+        </h1>
+
+        <p>
+            There's something waiting for you.
+        </p>
+
+        <p class="small">
+            But first... you need the secret code. 🤭
+        </p>
+
+
+        <div class="password-box">
+
+            <input
+                type="password"
+                id="passwordInput"
+                maxlength="20"
+                placeholder="Enter the secret code"
+                autocomplete="off"
+            >
+
+            <button id="unlockButton">
+                Unlock ❤️
+            </button>
+
+        </div>
+
+
+        <p
+            id="errorMessage"
+            class="error-message"
+        ></p>
+
+
+        <div class="hint">
+            💡 Hint: It's YOUR special day.
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     TRANSITION SCREEN
+===================================================== -->
+
+<section
+    id="transitionScreen"
+    class="transition-screen hidden"
+>
+
+    <div class="transition-content">
+
+        <div class="transition-lock">
+            🔐
+        </div>
+
+        <div class="transition-hearts">
+            💕 ✨ 💗 ✨ 💕
+        </div>
+
+        <h2 id="transitionText">
+            Unlocking your surprise...
+        </h2>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MAIN BIRTHDAY SCREEN
+===================================================== -->
+
+<section
+    id="birthdayScreen"
+    class="hidden"
+>
+
+    <div id="stars"></div>
+
+    <div id="particles"></div>
+
+    <div id="hearts"></div>
+
+
+    <main class="birthday-container">
+
+
+        <!-- =================================================
+             BIRTHDAY PHASE
+        ================================================= -->
+
+        <section
+            id="birthdayPhase"
+            class="experience-phase"
+        >
+
+            <p class="top-message reveal-item">
+                ✨ This little surprise is just for you ✨
+            </p>
+
+
+            <h1 class="birthday-title reveal-item">
+
+                Happy Birthday,
+
+                <span id="herName">
+                    Claire
+                </span>
+
+                ❤️
+
+            </h1>
+
+
+            <p class="subtitle reveal-item">
+                Today is all about you.
+            </p>
+
+
+            <div class="cake-area reveal-item">
+
+                <div class="cake-glow"></div>
+
+                <div class="cake">
+                    🎂
+                </div>
+
+                <div class="cake-text">
+                    Make a wish... ✨
+                </div>
+
+            </div>
+
+
+            <button
+                id="musicButton"
+                class="music-button reveal-item"
+            >
+                🎵 Music is ready
+            </button>
+
+
+            <button
+                id="continueToLetter"
+                class="main-button continue-button reveal-item"
+            >
+                I have something for you 💌
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             LETTER PHASE
+        ================================================= -->
+
+        <section
+            id="letterPhase"
+            class="experience-phase hidden"
+        >
+
+            <p class="section-label">
+                💌 I have something to tell you...
+            </p>
+
+
+            <div
+                id="envelope"
+                class="envelope"
+            >
+
+                <div class="envelope-back"></div>
+
+
+                <!-- THE LETTER -->
+
+                <div class="letter">
+
+                    <div class="letter-content">
+
+                        <h2>
+                            To: Claire Seraphine D. Ariola ❤️
+                        </h2>
+
+                        <div id="typedLetter"></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ENVELOPE FRONT -->
+
+                <div class="envelope-front"></div>
+
+
+                <!-- ENVELOPE FLAP -->
+
+                <div class="envelope-flap"></div>
+
+            </div>
+
+
+            <button
+                id="openLetter"
+                class="main-button"
+            >
+                Open my message 💌
+            </button>
+
+
+            <button
+                id="continueToCelebrate"
+                class="main-button hidden"
+            >
+                Continue 🎉
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CELEBRATE PHASE
+        ================================================= -->
+
+        <section
+            id="celebratePhase"
+            class="experience-phase hidden"
+        >
+
+            <div class="celebrate-heart">
+                ❤️
+            </div>
+
+
+            <h2>
+                You made it to the best part! 🥳
+            </h2>
+
+
+            <p>
+                Now let's celebrate your Day! 💕
+            </p>
+
+
+            <button
+                id="celebrateButton"
+                class="celebrate-button"
+            >
+                🎉 Celebrate!
+            </button>
+
+
+            <button
+                id="continueToGallery"
+                class="main-button hidden"
+            >
+                One more little surprise... ✨
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             GALLERY PHASE
+        ================================================= -->
+
+        <section
+            id="galleryPhase"
+            class="experience-phase hidden"
+        >
+
+            <h2>
+                Your Best Moments ❤️👑
+            </h2>
+
+
+            <p class="gallery-subtitle">
+                Little moments that deserve to stay.
+            </p>
+
+
+            <div class="hologram-gallery">
+
+
+                <!-- HOLOGRAM RINGS -->
+
+                <div class="hologram-ring ring-one"></div>
+
+                <div class="hologram-ring ring-two"></div>
+
+                <div class="hologram-ring ring-three"></div>
+
+
+                <!-- CENTER -->
+
+                
+
+
+                <!-- ORBIT PHOTOS -->
+
+                <div
+                    class="hologram-orbit"
+                    id="hologramOrbit"
+                ></div>
+
+
+                <!-- CENTER WORD -->
+
+                <div
+                    class="incoming-memory"
+                    id="incomingMemory"
+                >
+
+                    <div class="incoming-photo">
+
+                        <img
+                            id="incomingImage"
+                            src=""
+                            alt="Memory"
+                        >
+
+                    </div>
+
+
+                    <div
+                        class="incoming-word"
+                        id="incomingWord"
+                    ></div>
+
+                </div>
+
+
+                <!-- FLOATING WORDS -->
+
+                <div class="floating-word word-one">
+                    beautiful ✨
+                </div>
+
+                <div class="floating-word word-two">
+                    memories 💕
+                </div>
+
+                <div class="floating-word word-three">
+                    special 🌷
+                </div>
+
+                <div class="floating-word word-four">
+                    Best Smile ❤️
+                </div>
+
+            </div>
+
+
+            <p class="gallery-ending">
+                Some moments are meant to stay. ❤️
+            </p>
+
+
+            <button
+                id="continueToEnding"
+                class="main-button"
+            >
+                One last thing... 🥺
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ENDING
+        ================================================= -->
+
+        <section
+            id="endingPhase"
+            class="experience-phase hidden"
+        >
+
+            <div class="big-heart">
+                ❤️
+            </div>
+
+
+            <h2>
+                Have the happiest birthday.
+            </h2>
+
+
+            <p>
+                I hope this little surprise made you smile. ✨
+            </p>
+
+
+            <p class="final-love">
+                Take care of yourself, okay? ❤️
+            </p>
+
+        </section>
+
+    </main>
+
+</section>
+
+
+
+<!-- =====================================================
+     MUSIC
+===================================================== -->
+
+<audio
+    id="birthdayMusic"
+    loop
+    preload="auto"
+>
+
+    <source
+        src="music/birthday.mp3"
+        type="audio/mpeg"
+    >
+
+</audio>
+
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
