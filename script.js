@@ -260,7 +260,7 @@ async function startMusic() {
 
     try {
 
-        await birthdayMusic.play();
+         birthdayMusic.play();
 
         musicButton.textContent =
             "🎵 Music is playing";
